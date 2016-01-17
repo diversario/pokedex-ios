@@ -12,6 +12,7 @@
 		201C810A1C4B47CB00CD448A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 201C81081C4B47CB00CD448A /* Main.storyboard */; };
 		201C810C1C4B47CB00CD448A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 201C810B1C4B47CB00CD448A /* Assets.xcassets */; };
 		201C810F1C4B47CB00CD448A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 201C810D1C4B47CB00CD448A /* LaunchScreen.storyboard */; };
+		201C81171C4B4D0500CD448A /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 201C81161C4B4D0500CD448A /* pokemon.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		201C810B1C4B47CB00CD448A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		201C810E1C4B47CB00CD448A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		201C81101C4B47CB00CD448A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		201C81161C4B4D0500CD448A /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				201C810B1C4B47CB00CD448A /* Assets.xcassets */,
 				201C810D1C4B47CB00CD448A /* LaunchScreen.storyboard */,
 				201C81101C4B47CB00CD448A /* Info.plist */,
+				201C81161C4B4D0500CD448A /* pokemon.csv */,
 			);
 			path = pokedex;
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 			files = (
 				201C810F1C4B47CB00CD448A /* LaunchScreen.storyboard in Resources */,
 				201C810C1C4B47CB00CD448A /* Assets.xcassets in Resources */,
+				201C81171C4B4D0500CD448A /* pokemon.csv in Resources */,
 				201C810A1C4B47CB00CD448A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +291,7 @@
 				201C81151C4B47CB00CD448A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
