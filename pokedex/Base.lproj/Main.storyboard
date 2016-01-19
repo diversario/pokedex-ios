@@ -238,7 +238,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="mfl-nR-RKI">
                                                 <rect key="frame" x="100" y="0.0" width="460" height="100"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -252,7 +252,7 @@
                                                 <color key="textColor" red="0.98431372549999996" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Weird-ass deer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPe-kk-EqN">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Weird-ass deer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="kPe-kk-EqN">
                                                 <rect key="frame" x="140" y="0.0" width="140" height="102"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -342,8 +342,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NF9-QO-QXu" userLabel="evo text">
                                 <rect key="frame" x="0.0" y="458" width="600" height="26"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next evolution: Whachamacalit LVL 69" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kZ-8z-4Tr">
-                                        <rect key="frame" x="155" y="3" width="289.5" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next evolution: Whachamacalit LVL 69" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="2kZ-8z-4Tr">
+                                        <rect key="frame" x="8" y="3" width="584" height="20"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -354,6 +354,8 @@
                                     <constraint firstAttribute="height" constant="26" id="6RJ-hY-pdn"/>
                                     <constraint firstItem="2kZ-8z-4Tr" firstAttribute="centerY" secondItem="NF9-QO-QXu" secondAttribute="centerY" id="EK7-wg-B5W"/>
                                     <constraint firstItem="2kZ-8z-4Tr" firstAttribute="centerX" secondItem="NF9-QO-QXu" secondAttribute="centerX" id="RBe-Qd-h0d"/>
+                                    <constraint firstItem="2kZ-8z-4Tr" firstAttribute="leading" secondItem="NF9-QO-QXu" secondAttribute="leadingMargin" id="WZ9-SP-onc"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="2kZ-8z-4Tr" secondAttribute="trailing" id="ZzK-f3-n3r"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XPe-ZL-Owq" userLabel="evo pix">
@@ -399,9 +401,10 @@
                         <outlet property="defenceLabel" destination="Oux-xI-ECT" id="0CK-d2-Thn"/>
                         <outlet property="descLabel" destination="mfl-nR-RKI" id="0wx-hc-lbl"/>
                         <outlet property="evoLabel" destination="2kZ-8z-4Tr" id="sB3-B7-0n9"/>
+                        <outlet property="evoLabelStack" destination="NF9-QO-QXu" id="TJ4-y4-Aod"/>
                         <outlet property="heightLabel" destination="EJ0-dP-nT6" id="Gb5-GW-omO"/>
-                        <outlet property="label" destination="xvp-bj-Egb" id="uOv-cp-ZxR"/>
                         <outlet property="mainImg" destination="cmR-Xq-eD3" id="av6-EM-coc"/>
+                        <outlet property="nameLabel" destination="xvp-bj-Egb" id="tT3-B2-h3r"/>
                         <outlet property="nextEvoImg" destination="vzf-47-viT" id="0bC-ZK-2J0"/>
                         <outlet property="pokedexLabel" destination="PO9-Yn-lLc" id="sMw-vZ-htz"/>
                         <outlet property="typeLabel" destination="kPe-kk-EqN" id="ei8-UO-RU7"/>

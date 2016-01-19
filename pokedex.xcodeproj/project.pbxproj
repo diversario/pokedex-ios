@@ -19,6 +19,7 @@
 		201C811F1C4B871200CD448A /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201C811E1C4B871200CD448A /* csv.swift */; };
 		201C81211C4B872700CD448A /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 201C81201C4B872700CD448A /* music.mp3 */; };
 		201C81271C4B936400CD448A /* pokefont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 201C81261C4B936400CD448A /* pokefont.ttf */; };
+		208763CE1C4DCC1100A2938A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208763CD1C4DCC1100A2938A /* Constants.swift */; };
 		53E2C928F18ED43EDB378084 /* Pods_pokedex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D02D3A884B6ED28876B78BD4 /* Pods_pokedex.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		201C811E1C4B871200CD448A /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
 		201C81201C4B872700CD448A /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		201C81261C4B936400CD448A /* pokefont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokefont.ttf; sourceTree = "<group>"; };
+		208763CD1C4DCC1100A2938A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5B8C29379FF2CBDB3E494B46 /* Pods-pokedex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedex.release.xcconfig"; path = "Pods/Target Support Files/Pods-pokedex/Pods-pokedex.release.xcconfig"; sourceTree = "<group>"; };
 		850F3EF6C0684918008F2F64 /* Pods-pokedex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pokedex/Pods-pokedex.debug.xcconfig"; sourceTree = "<group>"; };
 		D02D3A884B6ED28876B78BD4 /* Pods_pokedex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pokedex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				201C811E1C4B871200CD448A /* csv.swift */,
+				208763CD1C4DCC1100A2938A /* Constants.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				201C81071C4B47CB00CD448A /* ViewController.swift in Sources */,
 				201C81051C4B47CB00CD448A /* AppDelegate.swift in Sources */,
 				200541E01C4C6F76007B7369 /* PokemonDetailVC.swift in Sources */,
+				208763CE1C4DCC1100A2938A /* Constants.swift in Sources */,
 				201C811A1C4B4DE300CD448A /* Pokemon.swift in Sources */,
 				201C811F1C4B871200CD448A /* csv.swift in Sources */,
 			);
