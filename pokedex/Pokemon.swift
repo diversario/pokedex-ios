@@ -83,8 +83,6 @@ class Pokemon {
         // can also pass NSURL instead of that string
         Alamofire.request(.GET, self._pokemonUrl).responseJSON { res in
             if let json = res.result.value {
-                print(json)
-                
                 if let weight = json["weight"] as? String {
                     self._weight = weight
                 }

@@ -87,7 +87,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let source = inSearchMode ? filteredPokemon : pokemon
         let poke = source[indexPath.row]
         
-        performSegueWithIdentifier("PokemonDetailVC", sender: poke)
+        poke.downloadPokemonDetails { () -> () in
+            self.performSegueWithIdentifier("PokemonDetailVC", sender: poke)
+        }
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

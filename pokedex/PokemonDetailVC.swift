@@ -25,20 +25,25 @@ class PokemonDetailVC: UIViewController {
     @IBOutlet weak var evoLabel: UILabel!
     @IBOutlet weak var evoLabelStack: UIView!
     
+    var tapGesture: UITapGestureRecognizer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: "onNextEvoTap:")
+        //tapGesture.delegate = self
+        
+        nextEvoImg.userInteractionEnabled = true
+        nextEvoImg.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(animated: Bool) {
-        nameLabel.text = pokemon.name
-        mainImg.image = UIImage(named: String(pokemon.pokedexId))
-        
-        pokemon.downloadPokemonDetails { () -> () in
-            self.updateUI()
-        }
+        self.updateUI()
     }
     
     func updateUI(){
+        nameLabel.text = pokemon.name.capitalizedString
+        mainImg.image = UIImage(named: String(pokemon.pokedexId))
         descLabel.text = pokemon.description
         typeLabel.text = pokemon.type
         defenceLabel.text = pokemon.defense
@@ -64,5 +69,13 @@ class PokemonDetailVC: UIViewController {
     
     @IBAction func onBackPressed(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func onNextEvoTap(sender: AnyObject) {
+        let nextPokemon = Pokemon(name: pokemon.nextEvolutionName, pokedexId: Int(pokemon.nextEvolutionId)!)
+        nextPokemon.downloadPokemonDetails { () -> () in
+            self.pokemon = nextPokemon
+            self.updateUI()
+        }
     }
 }
