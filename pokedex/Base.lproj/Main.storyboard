@@ -157,7 +157,7 @@
         <!--Pokemon DetailVC-->
         <scene sceneID="NZi-aX-G7p">
             <objects>
-                <viewController id="yyT-GK-rR2" customClass="PokemonDetailVC" customModule="pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailVC" id="yyT-GK-rR2" customClass="PokemonDetailVC" customModule="pokedex" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d4B-pN-5i6"/>
                         <viewControllerLayoutGuide type="bottom" id="Klg-Et-fqh"/>

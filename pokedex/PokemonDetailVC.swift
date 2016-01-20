@@ -27,15 +27,11 @@ class PokemonDetailVC: UIViewController {
     
     var tapGesture: UITapGestureRecognizer!
     
-    var history: [Pokemon]!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tapGesture = UITapGestureRecognizer(target: self, action: "onNextEvoTap:")
         //tapGesture.delegate = self
-        
-        history = [Pokemon]()
         
         nextEvoImg.userInteractionEnabled = true
         nextEvoImg.addGestureRecognizer(tapGesture)
@@ -73,21 +69,20 @@ class PokemonDetailVC: UIViewController {
     }
     
     @IBAction func onBackPressed(sender: UIButton) {
-        if !history.isEmpty {
-            pokemon = history.popLast()
-            updateUI()
-        } else {
             dismissViewControllerAnimated(true, completion: nil)
-        }
     }
     
     func onNextEvoTap(sender: AnyObject) {
         let nextPokemon = Pokemon(name: pokemon.nextEvolutionName, pokedexId: Int(pokemon.nextEvolutionId)!)
-        self.history.append(self.pokemon)
         
         nextPokemon.downloadPokemonDetails { () -> () in
-            self.pokemon = nextPokemon
-            self.updateUI()
+            let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let pokeDetailVC = storyboard.instantiateViewControllerWithIdentifier("detailVC") as! PokemonDetailVC
+            
+            pokeDetailVC.pokemon = nextPokemon
+            pokeDetailVC.modalTransitionStyle = .CrossDissolve
+            
+            self.presentViewController(pokeDetailVC, animated: true, completion: nil)
         }
     }
 }
