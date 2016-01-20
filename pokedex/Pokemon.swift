@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import CoreData
 
 class Pokemon {
     private var _name: String!
@@ -22,6 +23,7 @@ class Pokemon {
     private var _nextEvoId: String! = ""
     private var _nextEvoLevel: String! = ""
     private var _pokemonUrl: String! = ""
+    private var _moves: [[String: AnyObject]]!
     
     var name: String {
         return _name
@@ -66,6 +68,10 @@ class Pokemon {
     
     var nextEvolutionName: String {
         return _nextEvoName
+    }
+    
+    var moves: [[String: AnyObject]] {
+        return _moves
     }
     
     init(name: String, pokedexId: Int) {
@@ -124,19 +130,63 @@ class Pokemon {
                     }
                 }
                 
-                if let desc = json["descriptions"] as? [[String: String]] where desc.count > 0 {
-                    if let res = desc[0]["resource_uri"] {
-                        let url = "\(URL_BASE)\(res)"
-                        Alamofire.request(.GET, url).responseJSON { res in
-                            if let descJson = res.result.value as? [String: AnyObject] {
-                                self._description = descJson["description"] as? String
-                                cb()
-                            }
-                        }
-                    }
+                var moves_refs = [String]()
+                
+                if let m = json["moves"] as? [ [String: AnyObject] ] {
+                    moves_refs = m.map({ (move: [String : AnyObject]) -> String in
+                        return move["resource_uri"] as! String
+                    })
                 }
+                
+                var movesList = [[String: AnyObject]]()
+                
+                self.downloadMoves(moves_refs, acc: &movesList, cb: { (results: [[String : AnyObject]]) -> () in
+                    self._moves = results
+                    self.downloadDescription(json as! [String : AnyObject], cb: { (desc) -> () in
+                        if let d = desc {
+                            self._description = d
+                        }
+                        
+                        cb()
+                    })
+                })
             } else {
                 cb()
+            }
+        }
+    }
+    
+    func downloadDescription (json: [String: AnyObject], cb: (String?) -> ()) {
+        if let desc = json["descriptions"] as? [[String: String]] where desc.count > 0 {
+            if let res = desc[0]["resource_uri"] {
+                let url = "\(URL_BASE)\(res)"
+                Alamofire.request(.GET, url).responseJSON { res in
+                    var desc: String?
+                    
+                    if let descJson = res.result.value as? [String: AnyObject] {
+                        desc = descJson["description"] as? String
+                    }
+                    
+                    cb(desc)
+                }
+            } else {
+                cb(nil)
+            }
+        } else {
+            cb(nil)
+        }
+    }
+    
+    func downloadMoves (var moves: [String], inout acc: [[String: AnyObject]], cb: ([ [String: AnyObject] ])->() ) {
+        Alamofire.request(Alamofire.Method.GET, "\(URL_BASE)\(moves.popLast()!)").responseJSON { res in
+            if let movesJson = res.result.value as? [String: AnyObject] {
+                acc.append(movesJson)
+            }
+            
+            if moves.isEmpty {
+                cb(acc)
+            } else {
+                self.downloadMoves(moves, acc: &acc, cb: cb)
             }
         }
     }

@@ -8,7 +8,14 @@
 
 import UIKit
 
-class PokemonDetailVC: UIViewController {
+class PokemonDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    enum Segment: Int {
+        case Bio = 0
+        case Moves = 1
+    }
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     var pokemon: Pokemon!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -25,6 +32,9 @@ class PokemonDetailVC: UIViewController {
     @IBOutlet weak var evoLabel: UILabel!
     @IBOutlet weak var evoLabelStack: UIView!
     
+    @IBOutlet weak var evoStack: UIStackView!
+    @IBOutlet weak var bioStack: UIStackView!
+    
     var tapGesture: UITapGestureRecognizer!
     
     override func viewDidLoad() {
@@ -35,6 +45,44 @@ class PokemonDetailVC: UIViewController {
         
         nextEvoImg.userInteractionEnabled = true
         nextEvoImg.addGestureRecognizer(tapGesture)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.hidden = true
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let move = pokemon.moves[indexPath.row]
+        let name = move["name"] as! String
+        
+        if let cell = tableView.dequeueReusableCellWithIdentifier("moveCell") as? MoveCell {
+            cell.configureCell(name)
+            return cell
+        } else {
+            let cell = MoveCell()
+            cell.configureCell(name)
+            return cell
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("MoveListVC", sender: indexPath.row)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let movesVC = segue.destinationViewController as? MoveListVC {
+            movesVC.pokemon = pokemon
+            movesVC.moveIndex = sender as? Int
+        }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pokemon.moves.count
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -83,6 +131,18 @@ class PokemonDetailVC: UIViewController {
             pokeDetailVC.modalTransitionStyle = .CrossDissolve
             
             self.presentViewController(pokeDetailVC, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func onSwitch(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == Segment.Bio.rawValue {
+            evoStack.hidden = false
+            bioStack.hidden = false
+            tableView.hidden = true
+        } else {
+            evoStack.hidden = true
+            bioStack.hidden = true
+            tableView.hidden = false
         }
     }
 }
