@@ -50,6 +50,7 @@ class PokemonDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.dataSource = self
         
         tableView.hidden = true
+        tableView.tableFooterView = UIView()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

@@ -26,7 +26,7 @@ class Pokemon {
     private var _moves: [[String: AnyObject]]!
     
     var name: String {
-        return _name
+        return _name.capitalizedString
     }
     
     var pokedexId: Int {

@@ -19,6 +19,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var audioPlayer: AVAudioPlayer!
     var inSearchMode = false
     var tapGesture: UITapGestureRecognizer!
+    var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,10 +85,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        collectionView.userInteractionEnabled = false
+        collectionView.alpha = 0.5
+        
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! PokeCell
+        activityIndicator = UIActivityIndicatorView(frame: cell.thumbImage.bounds)
+        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
+        activityIndicator.color = UIColor.blackColor()
+        
+        cell.thumbImage.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+
         let source = inSearchMode ? filteredPokemon : pokemon
         let poke = source[indexPath.row]
         
         poke.downloadPokemonDetails { () -> () in
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.removeFromSuperview()
+            collectionView.userInteractionEnabled = true
+            collectionView.alpha = 1
             self.performSegueWithIdentifier("PokemonDetailVC", sender: poke)
         }
     }
