@@ -394,25 +394,45 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="41" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eHt-zY-Xlq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eHt-zY-Xlq">
                                 <rect key="frame" x="0.0" y="134" width="600" height="466"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <tableView key="tableFooterView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pzV-Ts-wax">
-                                    <rect key="frame" x="0.0" y="68" width="600" height="128"/>
+                                    <rect key="frame" x="0.0" y="108" width="600" height="128"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </tableView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="moveCell" rowHeight="40" id="km0-1K-ZTz" customClass="MoveCell" customModule="pokedex" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="40"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="moveCell" rowHeight="80" id="km0-1K-ZTz" customClass="MoveCell" customModule="pokedex" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="km0-1K-ZTz" id="jey-4E-wJa">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="hup-7J-Rad">
-                                                    <rect key="frame" x="8" y="8" width="511" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="hup-7J-Rad">
+                                                    <rect key="frame" x="8" y="8" width="551" height="41.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="attack: 60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1S-Mg-Q6m">
+                                                    <rect key="frame" x="8" y="57.5" width="100" height="14.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="14.5" id="VEx-Cf-WKe"/>
+                                                        <constraint firstAttribute="width" constant="100" id="eb3-R4-rhY"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="accuracy: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5O-6r-evg">
+                                                    <rect key="frame" x="108" y="57.5" width="100" height="14.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="XAX-9s-NPA"/>
+                                                        <constraint firstAttribute="height" constant="14.5" id="d5c-jr-VYe"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -420,11 +440,23 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="hup-7J-Rad" secondAttribute="bottom" id="CzR-zg-kF3"/>
                                                 <constraint firstItem="hup-7J-Rad" firstAttribute="top" secondItem="jey-4E-wJa" secondAttribute="topMargin" id="FNU-Ce-AJ5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Y5O-6r-evg" secondAttribute="bottom" id="Sew-kh-FXK"/>
+                                                <constraint firstItem="Y5O-6r-evg" firstAttribute="leading" secondItem="E1S-Mg-Q6m" secondAttribute="trailing" id="Uwc-kD-XoS"/>
                                                 <constraint firstItem="hup-7J-Rad" firstAttribute="leading" secondItem="jey-4E-wJa" secondAttribute="leadingMargin" id="Wd0-eB-xWQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="E1S-Mg-Q6m" secondAttribute="bottom" id="YGF-kN-AMG"/>
+                                                <constraint firstItem="E1S-Mg-Q6m" firstAttribute="top" secondItem="hup-7J-Rad" secondAttribute="bottom" constant="8" id="hlO-sx-1hL"/>
+                                                <constraint firstItem="E1S-Mg-Q6m" firstAttribute="leading" secondItem="jey-4E-wJa" secondAttribute="leadingMargin" id="qiU-hL-WTo"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="hup-7J-Rad" secondAttribute="trailing" id="xcp-HN-bHR"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="CzR-zg-kF3"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="accuracyLabel" destination="Y5O-6r-evg" id="Rv9-5j-WS3"/>
+                                            <outlet property="attackLabel" destination="E1S-Mg-Q6m" id="80x-rZ-HC4"/>
                                             <outlet property="moveLabel" destination="hup-7J-Rad" id="sC7-CH-7W4"/>
                                         </connections>
                                     </tableViewCell>

@@ -58,11 +58,11 @@ class PokemonDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         let name = move["name"] as! String
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("moveCell") as? MoveCell {
-            cell.configureCell(name)
+            cell.configureCell(move)
             return cell
         } else {
             let cell = MoveCell()
-            cell.configureCell(name)
+            cell.configureCell(move)
             return cell
         }
     }
